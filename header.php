@@ -21,11 +21,11 @@
                 <li><a href="index.php">Home</a></li>
                 <li><a href="project-list.php">Projects</a></li>
                 <?php if (isset($_SESSION['uid'])): ?>
-                    <!-- -->
+                    <!--When logged in, provides a 'Add Project' and 'Log Out' button-->
                     <li><a href="add-project.php">Add Project</a></li>
                     <li><a href="logout.php">Log Out</a></li>
                 <?php else: ?>
-                    <!-- -->
+                    <!--If the user has not logged in, the menu shows the 'Log in' and 'Register' buttons-->
                     <li><a href="login.php">Log In</a></li>
                     <li><a href="register.php">Register</a></li>
                 <?php endif; ?>

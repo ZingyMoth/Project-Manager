@@ -44,7 +44,7 @@ include 'header.php';
                 <?php if (isset($_SESSION['uid']) && $_SESSION['uid'] == $project['uid']): ?>
                     <a href="edit-project.php?pid=<?php echo $project['pid']; ?>" class="button">Edit project</a>
                     <!-- -->
-                    <form class="delete-form" action="delete-project.php" method="post">
+                        <form class="delete-form" action="delete-project.php" method="post" onsubmit="return confirm('Are you sure you want to delete this project?')">
                         <input type="hidden" name="pid" value="<?php echo $project['pid']; ?>">
                         <button type="submit" class="button button-outline">Delete project</button>
                     </form>

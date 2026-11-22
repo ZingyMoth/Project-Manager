@@ -49,10 +49,10 @@ include 'header.php';
 
             <form class="site-form" action="register.php" method="post" onsubmit="return validateRegister()" novalidate>
                 <label for="username">Username</label>
-                <input type="text" id="username" name="username" required>
+                <input type="text" id="username" name="username" value="<?php if (!empty($error)) echo htmlspecialchars($_POST['username']); ?>" required>
 
                 <label for="email">Email</label>
-                <input type="email" id="email" name="email" required>
+                <input type="email" id="email" name="email" value="<?php if (!empty($error)) echo htmlspecialchars($_POST['email']); ?>" required>
 
                 <label for="password">Password</label>
                 <input type="password" id="password" name="password" required>

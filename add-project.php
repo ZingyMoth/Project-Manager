@@ -10,6 +10,7 @@ include 'connectdb.php';
 // 
 $error = "";
 $success = "";
+$phases = array("design", "development", "testing", "deployment", "complete");
 
 // 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -56,24 +57,22 @@ include 'header.php';
 
             <form class="site-form" action="add-project.php" method="post" onsubmit="return validateProject()" novalidate>
                 <label for="title">Title</label>
-                <input type="text" id="title" name="title" required>
+                <input type="text" id="title" name="title" value="<?php if (!empty($error)) echo htmlspecialchars($_POST['title']); ?>" required>
 
                 <label for="start_date">Start date</label>
-                <input type="date" id="start_date" name="start_date" required>
+                <input type="date" id="start_date" name="start_date" value="<?php if (!empty($error)) echo htmlspecialchars($_POST['start_date']); ?>" required>
 
                 <label for="end_date">End date (optional)</label>
-                <input type="date" id="end_date" name="end_date">
+                <input type="date" id="end_date" name="end_date" value="<?php if (!empty($error)) echo htmlspecialchars($_POST['end_date']); ?>">
 
                 <label for="short_description">Short description</label>
-                <textarea id="short_description" name="short_description" rows="4" required></textarea>
+                <textarea id="short_description" name="short_description" rows="4" required><?php if (!empty($error)) echo htmlspecialchars($_POST['short_description']); ?></textarea>
 
                 <label for="phase">Phase</label>
                 <select id="phase" name="phase" required>
-                    <option value="design">Design</option>
-                    <option value="development">Development</option>
-                    <option value="testing">Testing</option>
-                    <option value="deployment">Deployment</option>
-                    <option value="complete">Complete</option>
+                    <?php foreach ($phases as $option): ?>
+                        <option value="<?php echo $option; ?>" <?php if (!empty($error) && $_POST['phase'] == $option) echo "selected"; ?>><?php echo ucfirst($option); ?></option>
+                    <?php endforeach; ?>
                 </select>
 
                 <button type="submit">Add project</button>

@@ -43,9 +43,9 @@ include 'header.php';
             <!-- -->
             <?php if (!empty($error)) echo "<p class='error-message'>$error</p>"; ?>
 
-                <form class="site-form" action="login.php" method="post" onsubmit="return validateLogin()" novalidate>
+            <form class="site-form" action="login.php" method="post" onsubmit="return validateLogin()" novalidate>
                 <label for="username">Username</label>
-                <input type="text" id="username" name="username" required>
+                <input type="text" id="username" name="username" value="<?php if (!empty($error)) echo htmlspecialchars($_POST['username']); ?>" required>
 
                 <label for="password">Password</label>
                 <input type="password" id="password" name="password" required>
