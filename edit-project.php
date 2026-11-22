@@ -72,7 +72,7 @@ include 'header.php';
                 <?php if (!empty($error)) echo "<p class='error-message'>$error</p>"; ?>
                 <?php if (!empty($success)) echo "<p class='success-message'>$success</p>"; ?>
 
-                <form class="site-form" action="edit-project.php" method="post">
+                <form class="site-form" action="edit-project.php" method="post" onsubmit="return validateProject()" novalidate>
                     <!-- -->
                     <input type="hidden" name="pid" value="<?php echo $project['pid']; ?>">
 

@@ -43,7 +43,7 @@ include 'header.php';
             <!-- -->
             <?php if (!empty($error)) echo "<p class='error-message'>$error</p>"; ?>
 
-            <form class="site-form" action="login.php" method="post">
+                <form class="site-form" action="login.php" method="post" onsubmit="return validateLogin()" novalidate>
                 <label for="username">Username</label>
                 <input type="text" id="username" name="username" required>
 

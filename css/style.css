@@ -330,3 +330,26 @@ main {
     font-size: 16px;
     cursor: pointer;
 }
+
+/*Red border that shakes on any box that has not been filled in correctly*/
+.site-form .error {
+    border: 2px solid red;
+    animation: shake 0.3s;
+}
+
+/*The shake movement, left and right then back to center*/
+@keyframes shake {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-6px);
+    }
+
+    75% {
+        transform: translateX(6px);
+    }
+}

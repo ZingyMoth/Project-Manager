@@ -47,7 +47,7 @@ include 'header.php';
             <?php if (!empty($error)) echo "<p class='error-message'>$error</p>"; ?>
             <?php if (!empty($success)) echo "<p class='success-message'>$success</p>"; ?>
 
-            <form class="site-form" action="register.php" method="post">
+            <form class="site-form" action="register.php" method="post" onsubmit="return validateRegister()" novalidate>
                 <label for="username">Username</label>
                 <input type="text" id="username" name="username" required>
 
